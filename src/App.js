@@ -6,13 +6,10 @@ import MapComponent from './components/MapComponent';
 import Sidebar from './components/Sidebar';  
 
 function App() {
-   
-  const [attackData, setAttackData] = useState([]);
+  const [attackSpeed, setAttackSpeed] = useState(1500); 
 
-  const handleUpdateAttacks = (count) => {
-   
-    const data = [/* attack data logic from your fetch call */];
-    setAttackData(data.slice(0, count));
+  const handleSpeedChange = (newSpeed) => {
+    setAttackSpeed(newSpeed); 
   };
 
   return (
@@ -20,12 +17,12 @@ function App() {
       <div className="top-border"></div>
       <Navbar />
       <div className="content">
-        <MapComponent attackData={attackData} />
+        <MapComponent attackSpeed={attackSpeed} /> 
       </div>
       <div className="stats-panel">
         <StatsPanel />
       </div>
-      <Sidebar handleUpdateAttacks={handleUpdateAttacks} />
+      <Sidebar handleSpeedChange={handleSpeedChange} />
     </div>
   );
 }
